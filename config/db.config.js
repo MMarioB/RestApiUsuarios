@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 // Creo la conexion con la base de datos
 const conexion = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'usuarios_db'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_DATABASE || 'usuarios_db'
 });
 
 conexion.connect(function(error){
